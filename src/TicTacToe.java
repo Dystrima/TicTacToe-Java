@@ -61,7 +61,24 @@ public class TicTacToe implements ActionListener {
     public void actionPerformed(ActionEvent e) {
     }
 
-    public void firstTurn() {}
+    public void firstTurn() {
+
+        // Add a delay before choosing the first player so that the title is displayed for 2 seconds
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        // have the random class pick a random number to chose who starts (0 = player 1, 1 = player 2)
+        if (random.nextInt(2) == 0) {
+            player1turn = true;
+            textField.setText("X turn");
+        } else {
+            player1turn = false;
+            textField.setText("O turn");
+        }
+    }
 
     public void checkWinCondition() {}
 
